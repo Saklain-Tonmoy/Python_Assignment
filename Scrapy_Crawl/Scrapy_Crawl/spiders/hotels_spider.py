@@ -64,7 +64,7 @@ def storeHotelDeals(place, image, location, price, stars):
 
 class HotelsSpider(scrapy.Spider):
     name = "hotels"
-    location = 'Thailand-Hotels.238.dc.html'
+    location = 'Hyderabad-Hotels.7297.hotel.ksp'
     locationName = location.split('Hotels')[0][0 : len(location.split('Hotels')[0])-1]
     start_urls = [
         'http://www.kayak.co.in/' + location,
@@ -128,7 +128,7 @@ class HotelsSpider(scrapy.Spider):
                         section = latest_hotels[i].css('div.deal-city .deal-city-details .deal-city-detail')[j]
                         stars = str(section.css('div.col-5-12 span::text').get())
                         price = str(section.css('div.col-5-12 span strong::text').get())
-                        storeHotelDeals(place, image_link, self.locationName, stars, price)
+                        storeHotelDeals(place, image_link, self.locationName, price, stars)
                         print()
                     
             if(len(response.css('div.Hotels-Region-HotelsCardList')) !=0 ):
