@@ -59,7 +59,6 @@ python3 -m venv my-env
 Second,
 ```
 source my-env/bin/activate
-
 ```
 
 ### Step 3
