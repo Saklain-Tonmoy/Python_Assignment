@@ -38,6 +38,7 @@ CREATE DATABASE [IF NOT EXISTS] mydb;
 ### Step 2
 > Import the (mydb.sql) provided with the cloned folder into the database.
 
+
 ## Project Setup
 
 ### Step 1
@@ -65,6 +66,13 @@ source my-env/bin/activate
 ```
 
 ### Step 3
+> Install Scrapy using the following command
+```
+pip install Scrapy
+```
+
+
+### Step 4
 
 > Then change the directory using the following command
 
@@ -73,7 +81,7 @@ cd Scrapy_Crawl
 
 ```
 
-### Step 4
+### Step 5
 
 > Install MYSQL Connector by running the following commandfor interacting with Database
 
@@ -82,31 +90,13 @@ python -m pip install mysql-connector-python
 
 ```
 
-### Step 5
+### Step 6
 
 > Install Fake User Generator for avoiding the blocking of bot Scrawling by running the following command
 
 ```
 pip install scrapy-fake-useragent
 
-```
-
-### Step 6
-> After installing Fake-User-Generator, add the followings to the settings.py file
-```
-DOWNLOADER_MIDDLEWARES = {
-    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
-    'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
-    'scrapy_fake_useragent.middleware.RetryUserAgentMiddleware': 401,
-}
-
-FAKEUSERAGENT_PROVIDERS = [
-    'scrapy_fake_useragent.providers.FakeUserAgentProvider',
-    'scrapy_fake_useragent.providers.FakerProvider',
-    'scrapy_fake_useragent.providers.FixedUserAgentProvider',
-    'mypackage.providers.CustomProvider'
-]
 ```
 
 ### Step 7
