@@ -92,7 +92,7 @@ pip install scrapy-fake-useragent
 ```
 
 ### Step 6
-> After installing Fake-User_Generator, add the followings to the settings.py file
+> After installing Fake-User-Generator, add the followings to the settings.py file
 ```
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
