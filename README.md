@@ -33,7 +33,6 @@
 
 ```
 CREATE DATABASE [IF NOT EXISTS] mydb;
-
 ```
 ### Step 2
 > Import the (mydb.sql) provided with the cloned folder into the database.
@@ -47,7 +46,6 @@ CREATE DATABASE [IF NOT EXISTS] mydb;
 
 ```
 git clone https://github.com/Saklain-Tonmoy/Python_Assignment
-
 ```
 
 ### Step 2
@@ -57,7 +55,6 @@ git clone https://github.com/Saklain-Tonmoy/Python_Assignment
 First,
 ```
 python3 -m venv my-env
-
 ```
 Second,
 ```
@@ -78,7 +75,6 @@ pip install Scrapy
 
 ```
 cd Scrapy_Crawl
-
 ```
 
 ### Step 5
@@ -87,7 +83,6 @@ cd Scrapy_Crawl
 
 ```
 python -m pip install mysql-connector-python
-
 ```
 
 ### Step 6
@@ -96,7 +91,6 @@ python -m pip install mysql-connector-python
 
 ```
 pip install scrapy-fake-useragent
-
 ```
 
 ### Step 7
@@ -105,7 +99,6 @@ pip install scrapy-fake-useragent
 
 ```
 scrapy crawl hotels
-
 ```
 
 ### Finally, thanks from Saklain Tonmoy :neutral_face:
