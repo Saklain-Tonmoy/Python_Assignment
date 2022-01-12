@@ -51,8 +51,14 @@ git clone https://github.com/Saklain-Tonmoy/Python_Assignment
 
 ### Step 2
 
-> After cloning please open the folder using cmd or VSCode, and run the following command to activate the Virtual Environment
+> After cloning please open the folder using cmd or VSCode, and run the following commands to install and activate the Virtual Environment
 
+First,
+```
+python3 -m venv my-env
+
+```
+Second,
 ```
 source my-env/bin/activate
 
