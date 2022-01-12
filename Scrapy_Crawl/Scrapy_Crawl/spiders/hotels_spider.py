@@ -48,7 +48,7 @@ def storeHotelDeals(place, image, location, price, stars):
     params = {'value1':place, 'value2':location}
     mycursor.execute(sql, params)
     myresult = mycursor.fetchall()
-    if(len(myresult) == 0):
+    if(len(myresult) <= 1):
         sqlQuery = "INSERT INTO hotel_deals (place, image, location, price, stars) VALUES (%s, %s, %s, %s, %s)"
         mycursor.execute(sqlQuery, (place, image, location, price, stars))
         connection.commit()
