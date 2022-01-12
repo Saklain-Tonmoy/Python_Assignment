@@ -16,6 +16,7 @@ mycursor = connection.cursor()
 
 
 def storeBestHotels(name, image, location, neighbor, price, stars, score, amenities):
+    ## checking if the requested data is already exists or not
     sql = "SELECT * FROM best_hotels WHERE name = %(value1)s AND location = %(value2)s"
     params = {'value1':name, 'value2':location}
     mycursor.execute(sql, params)
@@ -30,6 +31,7 @@ def storeBestHotels(name, image, location, neighbor, price, stars, score, amenit
         print("Data already exists")
 
 def storeLandmarkHotels(name, image, location, landmark, neighbor, price, stars, score, amenities):
+    ## checking if the requested data is already exists or not
     sql = "SELECT * FROM landmark_hotels WHERE name = %(value1)s AND location = %(value2)s"
     params = {'value1':name, 'value2':location}
     mycursor.execute(sql, params)
@@ -44,10 +46,12 @@ def storeLandmarkHotels(name, image, location, landmark, neighbor, price, stars,
         print("Data already exists")
 
 def storeHotelDeals(place, image, location, price, stars):
+    ## checking if the requested data is already exists or not
     sql = "SELECT * FROM hotel_deals WHERE place = %(value1)s AND location = %(value2)s"
     params = {'value1':place, 'value2':location}
     mycursor.execute(sql, params)
     myresult = mycursor.fetchall()
+    ## as there are two types of deals, that is why I have to store it twice. 
     if(len(myresult) <= 1):
         sqlQuery = "INSERT INTO hotel_deals (place, image, location, price, stars) VALUES (%s, %s, %s, %s, %s)"
         mycursor.execute(sqlQuery, (place, image, location, price, stars))
@@ -73,6 +77,7 @@ class HotelsSpider(scrapy.Spider):
         print('#####################################################')
         print()
 
+        ## Fetching data from Scripts with id=__R9_HYDRATE_DATA__
         str_data = response.css('#__R9_HYDRATE_DATA__::text').get()
         if(str_data != None):
             json_data = json.loads(str_data)
@@ -109,7 +114,6 @@ class HotelsSpider(scrapy.Spider):
                 score = landmark_hotels[i]['score']/10
                 amenities = landmark_hotels[i]['features']
                 storeLandmarkHotels(name, image, self.locationName, landmark, neighborhoodName, price, stars, score, (",".join(amenities)))
-                # print(name, neighborhoodName, price, score, (",".join(amenities)))
                 print()
         
         else:
